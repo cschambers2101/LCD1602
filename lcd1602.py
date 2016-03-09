@@ -74,7 +74,7 @@ def main():
  
   while True:
  
-    # Send some test
+    # Send some text
     lcd_string("Computer Science",LCD_LINE_1)
     lcd_string("at S6C",LCD_LINE_2)
  
@@ -93,6 +93,11 @@ def lcd_init():
   lcd_byte(0x06,LCD_CMD) # 000110 Cursor move direction
   lcd_byte(0x0C,LCD_CMD) # 001100 Display On,Cursor Off, Blink Off
   lcd_byte(0x28,LCD_CMD) # 101000 Data length, number of lines, font size
+  # lcd_byte(0x01,LCD_CMD) # 000001 Clear display
+  lcd_clear() # Clear display
+  time.sleep(E_DELAY)
+  
+def lcd_clear():
   lcd_byte(0x01,LCD_CMD) # 000001 Clear display
   time.sleep(E_DELAY)
  
