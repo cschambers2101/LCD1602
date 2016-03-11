@@ -5,6 +5,16 @@ from time import sleep
 import socket
 import fcntl
 import struct
+import re
+import smtplib
+
+#extract the ip address (or addresses) from ifconfig
+found_ips = []
+ips = re.findall( r'[0-9]+(?:\.[0-9]+){3}', commands.getoutput("/sbin/ifconfig"))
+for ip in ips:
+  if ip.startswith("255") or ip.startswith("127") or ip.endswith("255"):
+    continue
+  found_ips.append(ip)
 
 def getHwAddr(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
