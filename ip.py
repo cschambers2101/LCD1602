@@ -9,6 +9,7 @@ def run_cmd(cmd):
     return output
 
 ip = run_cmd(cmd)
+ip = ip.encode('utf-8')
 #ip = Popen("ip addr show wlan0 | grep inet | awk '{print $2}' | cut -d -f1", shell=True, stdout=PIPE).communicate()[0]
 print('DEBUG: ', ip)
 
