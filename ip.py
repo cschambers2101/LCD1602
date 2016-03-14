@@ -11,7 +11,7 @@ def run_cmd(cmd):
     output = p.communicate()[0]
     return output
 
-ip = run_cmd()
+ip = run_cmd(cmd)
 print('DEBUG: IP Address is ', ip)
 
 lcd = LCD1602()
