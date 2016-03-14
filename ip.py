@@ -13,10 +13,12 @@ def get_ip_address(ifname):
     )[20:24])
 
 ver = sys.version_info[0]
+print('DEBUG: Running under Python V', ver)
+
 if ver == 2:
     ip = get_ip_address('wlan0')  # '192.168.0.110'
-else:
-    pass
+elif ver == 3:
+    ip = list(bytearray(get_ip_address('wlan0')))
 print('DEBUG: IP Address is ', ip)
 
 lcd = LCD1602()
