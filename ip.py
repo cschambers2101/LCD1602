@@ -18,7 +18,7 @@ print('DEBUG: Running under Python V', ver)
 if ver == 2:
     ip = get_ip_address('wlan0')  # '192.168.0.110'
 elif ver == 3:
-    ip = list(bytearray(get_ip_address('wlan0')))
+    ip = get_ip_address('wlan0').encode(encoding='UTF-8')
 print('DEBUG: IP Address is ', ip)
 
 lcd = LCD1602()
