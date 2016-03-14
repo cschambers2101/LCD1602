@@ -3,7 +3,7 @@ from time import sleep
 from subprocess import *
 import socket
 
-print(socket.gethostbyname(socket.getfqdn()))
+print(socket.getfqdn())
 
 c = "ip addr show eth0 | grep inet | awk '{print $2}' | cut -d/ -f1"
 
