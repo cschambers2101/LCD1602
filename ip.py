@@ -5,20 +5,14 @@ import socket
 import fcntl
 import struct
 
-'''
-def get_ip_address(ifname):
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    return socket.inet_ntoa(fcntl.ioctl(
-        s.fileno(),
-        0x8915,  # SIOCGIFADDR
-        struct.pack('256s', ifname[:15])
-    )[20:24])
+cmd = "ip addr show eth0 | grep inet | awk '{print $2}' | cut -d/ -f1"
+def run_cmd(cmd):
+    p = Popen(cmd, shell=True, stdout=PIPE)
+    output = p.communicate()[0]
+    return output
 
-ip= get_ip_address('wlan0')
-'''
-
-ip = Popen("ip addr show wlan0 | grep inet | awk '{print $2}' | cut -d -f1", shell=True, stdout=PIPE).communicate()[0]
-print('DEBUG: ', ip)
+ip = run_cmd()
+print('DEBUG: IP Address is ', ip)
 
 lcd = LCD1602()
 
