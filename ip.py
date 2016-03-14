@@ -1,18 +1,17 @@
 from lcd1602 import LCD1602
-from time import sleep
-from subprocess import *
 import socket
+import fcntl
+import struct
 
-print(socket.getfqdn())
+def get_ip_address(ifname):
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    return socket.inet_ntoa(fcntl.ioctl(
+        s.fileno(),
+        0x8915,  # SIOCGIFADDR
+        struct.pack('256s', ifname[:15])
+    )[20:24])
 
-c = "ip addr show eth0 | grep inet | awk '{print $2}' | cut -d/ -f1"
-
-def run_cmd(cmd):
-        p = Popen(cmd, shell=True, stdout=PIPE)
-        output = p.communicate()[0]
-        return output
-
-ip = run_cmd(c)
+ip = get_ip_address('wlan0')  # '192.168.0.110'
 
 print('DEBUG: IP Address is ', ip)
 
