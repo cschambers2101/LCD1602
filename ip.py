@@ -23,7 +23,7 @@ if ver == 2:
     ip = get_ip_address('wlan0')  # '192.168.0.110'
 elif ver == 3:
     ip = 'Use Python V2'
-print('DEBUG: IP Address is ', ip)
+print('DEBUG: IP Address is ' +  str(ip))
 
 lcd = LCD1602()
 
