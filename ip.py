@@ -18,7 +18,7 @@ print('DEBUG: Running under Python V', ver)
 if ver == 2:
     ip = get_ip_address('wlan0')  # '192.168.0.110'
 elif ver == 3:
-    ip = 'Run under Python 2'
+    ip = 'Use Python V2'
 print('DEBUG: IP Address is ', ip)
 
 lcd = LCD1602()
