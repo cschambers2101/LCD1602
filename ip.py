@@ -17,7 +17,7 @@ def get_ip_address(ifname):
 
 
 ver = sys.version_info[0]
-print('DEBUG: Running under Python V', ver)
+print('DEBUG: Running under Python V' + str(ver))
 
 if ver == 2:
     ip = get_ip_address('wlan0')  # '192.168.0.110'
