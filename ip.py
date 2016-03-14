@@ -2,6 +2,7 @@ from lcd1602 import LCD1602
 import socket
 import fcntl
 import struct
+import sys
 
 def get_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -11,8 +12,11 @@ def get_ip_address(ifname):
         struct.pack('256s', ifname[:15])
     )[20:24])
 
-ip = get_ip_address('wlan0')  # '192.168.0.110'
-
+ver = sys.version_info[0]
+if ver == 2:
+    ip = get_ip_address('wlan0')  # '192.168.0.110'
+else:
+    pass
 print('DEBUG: IP Address is ', ip)
 
 lcd = LCD1602()
