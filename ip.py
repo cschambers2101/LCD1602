@@ -5,6 +5,7 @@ from time import sleep
 import socket
 import fcntl
 import struct
+import sys
 
 def get_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
