@@ -25,11 +25,6 @@ elif ver == 3:
     ip = 'Use Python V2'
 print('DEBUG: IP Address is ', ip)
 
-ip= get_ip_address('wlan0')
-#ip = Popen("ip addr show wlan0 | grep inet | awk '{print $2}' | cut -d -f1", shell=True, stdout=PIPE).communicate()[0]
-print('DEBUG: ', ip)
-
-
 lcd = LCD1602()
 
 lcd.lcd_string("IP address", lcd.LCD_LINE_1)
