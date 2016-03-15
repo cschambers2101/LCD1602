@@ -7,6 +7,7 @@ import fcntl
 import struct
 import sys
 
+
 def get_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     return socket.inet_ntoa(fcntl.ioctl(
@@ -23,7 +24,7 @@ if ver == 2:
     ip = get_ip_address('wlan0')  # '192.168.0.110'
 elif ver == 3:
     ip = 'Use Python V2'
-print('DEBUG: IP Address is ' +  str(ip))
+print('DEBUG: IP Address is ' + str(ip))
 
 lcd = LCD1602()
 
