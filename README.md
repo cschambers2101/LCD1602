@@ -1,7 +1,10 @@
 # LCD1602
 Operate an LCD1602 from Python
 
-runit.py contains example code showing how to use the library
+This class requires you to pass an instance of a raspberry pi class
+ (not written) to it in order to allow it to function.
 
-ip.py shows how to display the IP address (Must be run under Python 2)
+ e.g.
 
+pi = RaspberryPi() # You will need to write the RaspberryPi Class
+lcd = LCD1602(pi)
